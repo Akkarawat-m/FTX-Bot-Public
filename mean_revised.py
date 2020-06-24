@@ -115,7 +115,7 @@ def sendBuy():
   types = 'limit'                         # ประเภทของคำสั่ง
   side = 'buy'                            # กำหนดฝั่ง BUY/SELL
   usd = 1                                 # กรณี Rebalance และต้องกรอกเป็น USD
-  price = buySignal + 10                  # ระดับราคาที่ต้องการ
+  price = buySignal + 20                  # ระดับราคาที่ต้องการ
   size_order = usd/price                  # ใส่ขนาดเป็น BTC, ถ้า Rebalance ให้ใส่เป็น usd/price # แล้วไปกรอกในตัวแปร usd แทน
   reduceOnly = False                      # ปิดโพซิชั่นเท่าจำนวนที่มีเท่านั้น (CREDIT : TY)
   postOnly =  False                       # วางโพซิชั่นเป็น MAKER เท่านั้น
@@ -134,7 +134,7 @@ def sendSell():
   types = 'limit'                         # ประเภทของคำสั่ง
   side = 'sell'                           # กำหนดฝั่ง BUY/SELL
   usd = 1                                 # กรณี Rebalance และต้องกรอกเป็น USD
-  price = sellSignal - 10                 # ระดับราคาที่ต้องการ
+  price = sellSignal - 20                 # ระดับราคาที่ต้องการ
   size_order = usd/price                  # ใส่ขนาดเป็น BTC, ถ้า Rebalance ให้ใส่เป็น usd/price # แล้วไปกรอกในตัวแปร usd แทน
   reduceOnly = True                       # ปิดโพซิชั่นเท่าจำนวนที่มีเท่านั้น (CREDIT : TY)
   postOnly =  False                       # วางโพซิชั่นเป็น MAKER เท่านั้น
