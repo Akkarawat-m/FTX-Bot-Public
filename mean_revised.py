@@ -206,6 +206,9 @@ def checkSellcondition():
 
 while True:
   buyRecord = []
+  priceData = priceHistdata()
+  buySignal = round((priceData.iloc[-31:-1,4].mean())*2) / 2
+  sellSignal = round((priceData.iloc[-11:-1,4].mean())*2) / 2
   print(time.ctime())
   readOrder()
   getPrice()
