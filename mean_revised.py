@@ -184,7 +184,7 @@ def checkSellcondition():
 
   # Sell Signal function
   if len(buyRecord) > 0:
-    if getPrice() <= sellSignal :
+    if getPrice() <= sellSignal and getPrice() - minOrder > 0 :
       print('sell signal triggered at ' + str(sellSignal)) 
       for ord in buyRecord:
         if getPrice() - ord > minimumProfit:
@@ -196,7 +196,7 @@ def checkSellcondition():
           print('Not Enough Profit ' + 'Minimum = ' + str(ord + minimumProfit))
           
     else:
-      print('Waiting for sell signal ' + 'at ' + str(sellSignal))
+      print('Waiting for last minimum order ' + 'at ' + str(minOrder))
   else: print('No Buy Order Record')
   print("  ")
 
@@ -211,6 +211,8 @@ while True:
   sellSignal = round((priceData.iloc[-11:-1,4].mean())*2) / 2
   print(time.ctime())
   readOrder()
+  minOrder = min(buyRecord, default=0.0)
+  maxOrder = max(buyRecord, default=100000000.0)
   getPrice()
   checkBuycondition()
   checkSellcondition()
